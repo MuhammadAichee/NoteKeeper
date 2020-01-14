@@ -152,6 +152,7 @@ class _NoteDetailsState extends State<NoteDetails>{
   }
   void updateTitle(){
     note.title=titleController.text;
+    
   }
   void updateDescription(){
     note.description=descriptionController.text;

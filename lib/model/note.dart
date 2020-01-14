@@ -39,20 +39,20 @@ class Note{
     if(id!=null){
       map['_id']=id;
     }
-    map['_description']=description;
-    map['_priority']=priority;
-    map['_title']=title;
-    map['_date']=date;
+    map['description']=description;
+    map['priority']=priority;
+    map['title']=title;
+    map['date']=date;
     print("map");
     print(map);
     return map;
   }
   Note.fromMapObject(Map<String, dynamic>map){
-    this._id=map['_id'];
-    this._title=map['_title'];
-    this._description=map['_description'];
-    this._priority=map['_priority'];
-    this._date=map['_date'];
+    this._id=map['id'];
+    this._title=map['title'];
+    this._description=map['description'];
+    this._priority=map['priority'];
+    this._date=map['date'];
 
   }
 }

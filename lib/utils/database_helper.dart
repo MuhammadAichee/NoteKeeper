@@ -24,6 +24,9 @@ class DatabaseHelper{
     if(_database==null){
       _database=await initializeDatabase();
     }
+    print('Hassans Check');
+    print(_database);
+    
     return _database;
   }
   Future<List<Map<String,dynamic>>> getNoteMapList() async{
@@ -76,10 +79,20 @@ class DatabaseHelper{
 
   var notesDatabase=await openDatabase(path, version:1,onCreate: _createDb );
   print(notesDatabase);
+
+  
   return notesDatabase;
   }
   void _createDb(Database db, int newVersion) async{
-    await db.execute('CREATE TABLE $noteTable($colId INTEGER PRIMARY KEY AUTOINCREMENT, $colTitle TEXT, $colDescription TEXT,$colPriority INTEGER ,$colDate TEXT)');
+    String creation = "CREATE TABLE $noteTable ("
+       "$colId INTEGER PRIMARY KEY AUTOINCREMENT,"
+       "$colTitle TEXT,"
+       "$colDescription TEXT,"
+       "$colPriority INTEGER ,"
+       "$colDate TEXT"
+       ")";
+     return await db.execute(creation);
+
 
   }
 
