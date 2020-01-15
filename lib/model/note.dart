@@ -21,9 +21,8 @@ class Note{
     }
   }
   set description ( String newDescription){
-    if(newDescription.length<=255){
       this._description=newDescription;
-    }
+    
   }
   set priority( int newPriority){
     if(newPriority>=1 && newPriority<=2){

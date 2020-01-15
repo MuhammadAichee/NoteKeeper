@@ -67,6 +67,7 @@ class _NoteDetailsState extends State<NoteDetails>{
                 child: TextField(
                   controller: titleController,
                   style:textStyle,
+                  
                   onChanged: (value){
                     updateTitle();
                     debugPrint("Something chamges in title text field");
@@ -83,14 +84,18 @@ class _NoteDetailsState extends State<NoteDetails>{
               ),),
               Container(
                 height:80.0,
-    child:
+          child:
               Padding(
                   padding: EdgeInsets.only(top:15.0, bottom: 15.0),
                   child: TextField(
                     controller: descriptionController,
+                    // scrollPadding: EdgeInsets.all(20.0),
+                  keyboardType: TextInputType.multiline,
+                  maxLines: 99999,
+                  autofocus: true,
                     style:textStyle,
                     onChanged: (value){
-                      debugPrint("Something chamges in Description text field");
+                      debugPrint("Something changes in Description text field");
                         updateDescription();
                       },
                     decoration: InputDecoration(
@@ -103,6 +108,17 @@ class _NoteDetailsState extends State<NoteDetails>{
                     ),
                   )
               ),),
+          
+          Padding(
+                  padding: EdgeInsets.only(top:15.0, bottom: 15.0,left:15.0),
+                  child: Text(
+                    descriptionController.text,
+                    style:TextStyle(fontSize: 20.0, fontStyle: FontStyle.italic),
+                    
+                    
+                    
+                  )
+              ),
               Padding(
                 padding: EdgeInsets.only(top: 15.0, bottom:15.0),
                 child: Row(

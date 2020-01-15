@@ -59,6 +59,7 @@ class NoteListState extends State<NoteList>{
               ),
                 title: Text(this.noteList[position].title,style: titlestyle ?? 'No Title'),
                 subtitle: Text(this.noteList[position].date,style: titlestyle),
+                
                 trailing: GestureDetector(
                   child: Icon(Icons.delete, color: Colors.grey,),
                   onTap:(){
