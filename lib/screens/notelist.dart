@@ -29,7 +29,7 @@ class NoteListState extends State<NoteList>{
     return Scaffold(
       appBar: AppBar(
           title: Text('Notes'),
-    
+
       ),
       body: getNoteList(),
       floatingActionButton: FloatingActionButton(
@@ -105,10 +105,10 @@ class NoteListState extends State<NoteList>{
   Icon getPriorityIcon(int priority){
     switch(priority){
       case 1:
-        return Icon(Icons.favorite);
+        return Icon(Icons.play_arrow);
         break;
       case 2:
-        return Icon(Icons.event_available);
+        return Icon(Icons.keyboard_arrow_right);
         break;
       default:
         return Icon(Icons.keyboard_arrow_right);
