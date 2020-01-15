@@ -42,7 +42,9 @@ class _NoteDetailsState extends State<NoteDetails>{
           ),
           child: ListView(
             children: <Widget>[
-              ListTile(
+              Row(children: <Widget>[
+                Text("Priority"),
+                    ListTile(
                 title: DropdownButton(
                   items: _priorities.map((String dropDownStringItem){
                     return DropdownMenuItem<String>(
@@ -59,7 +61,8 @@ class _NoteDetailsState extends State<NoteDetails>{
                     });
                   },
                 )
-              ),
+              ),  ],),
+              
               Container(
                 height:80.0,
               child:Padding(
@@ -162,7 +165,7 @@ class _NoteDetailsState extends State<NoteDetails>{
       case 'High':
         note.priority=1;
         break;
-      case 'low':
+      case 'Low':
         note.priority=2;
         break;
     }
@@ -201,17 +204,17 @@ class _NoteDetailsState extends State<NoteDetails>{
       _showAlterDialog('Status','Ahsan');
       result = await helper.updateNote(note);
       print(note);
-      print ("iske uper note ka result");
+      // print ("iske uper note ka result");
       print(result);
-      _showAlterDialog('Status','Ahsan1');
+      // _showAlterDialog('Status','Ahsan1');
     }
     else
       {
-      _showAlterDialog('Status','Ahsan insert');
+      // _showAlterDialog('Status','Ahsan insert');
       result = await helper.insertNote(note);
       print(note);
-      print ("iske uper note ka result");
-      _showAlterDialog('Status','Ahsan2');
+      // print ("iske uper note ka result");
+      // _showAlterDialog('Status','Ahsan2');
     }
     if (result!=0){
       _showAlterDialog('Status','Note Saved Successfully');
