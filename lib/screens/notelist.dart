@@ -29,7 +29,7 @@ class NoteListState extends State<NoteList>{
     return Scaffold(
       appBar: AppBar(
           title: Text('Notes'),
-
+          backgroundColor: Colors.blueAccent,
       ),
       body: getNoteList(),
       floatingActionButton: FloatingActionButton(
@@ -37,7 +37,7 @@ class NoteListState extends State<NoteList>{
           debugPrint('fab pressed');
           getNavigate(Note('','',2),'Add Note');
           },
-
+        backgroundColor: Colors.black,
         tooltip: "Add Note",
         child: Icon(Icons.add),
       ),
@@ -57,7 +57,7 @@ class NoteListState extends State<NoteList>{
                 child: getPriorityIcon(this.noteList[position].priority),
 
               ),
-                title: Text(this.noteList[position].title,style: titlestyle ?? 'No Title'),
+                title: Text(this.noteList[position].title.toUpperCase(),style:TextStyle(fontWeight: FontWeight.bold)),
                 subtitle: Text(this.noteList[position].date,style: titlestyle),
                 
                 trailing: GestureDetector(
@@ -106,13 +106,13 @@ class NoteListState extends State<NoteList>{
   Icon getPriorityIcon(int priority){
     switch(priority){
       case 1:
-        return Icon(Icons.play_arrow);
+        return Icon(Icons.favorite);
         break;
       case 2:
-        return Icon(Icons.keyboard_arrow_right);
+        return Icon(Icons.event_available);
         break;
       default:
-        return Icon(Icons.keyboard_arrow_right);
+        return Icon(Icons.event_available);
 
 
     }

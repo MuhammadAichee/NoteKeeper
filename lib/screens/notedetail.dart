@@ -74,7 +74,7 @@ class _NoteDetailsState extends State<NoteDetails>{
                   },
                   decoration: InputDecoration(
                     labelText: "Title",
-                    labelStyle: textStyle,
+                    // labelStyle: textStyle,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
 
@@ -91,16 +91,20 @@ class _NoteDetailsState extends State<NoteDetails>{
                     controller: descriptionController,
                     // scrollPadding: EdgeInsets.all(20.0),
                   keyboardType: TextInputType.multiline,
-                  maxLines: 99999,
+                  maxLines: null,
                   autofocus: true,
+                  textInputAction: TextInputAction.newline,
                     style:textStyle,
                     onChanged: (value){
-                      debugPrint("Something changes in Description text field");
+                      debugPrint("Something ");
                         updateDescription();
                       },
+                      
                     decoration: InputDecoration(
+                        contentPadding: EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
+                    
                         labelText: "Description",
-                        labelStyle: textStyle,
+                        // labelStyle: textStyle,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5.0),
 
@@ -110,21 +114,28 @@ class _NoteDetailsState extends State<NoteDetails>{
               ),),
           
           Padding(
-                  padding: EdgeInsets.only(top:15.0, bottom: 15.0,left:15.0),
-                  child: Text(
+                  padding: EdgeInsets.all(10.0),
+                   
+                  child: 
+                  Container
+                  ( decoration: myBoxDecoration(),
+                    padding:EdgeInsets.all(10.0) ,
+                    child: Text(
                     descriptionController.text,
-                    style:TextStyle(fontSize: 20.0, fontStyle: FontStyle.italic),
+                    style:TextStyle(fontSize: 17.0, fontStyle: FontStyle.italic,fontWeight:FontWeight.bold, letterSpacing:0.1, wordSpacing: 0.0),
+                    textAlign: TextAlign.justify,
                     
                     
                     
-                  )
+                    
+                  ),)
               ),
               Padding(
                 padding: EdgeInsets.only(top: 15.0, bottom:15.0),
                 child: Row(
                    children: <Widget>[
                      Expanded(child: RaisedButton(
-                         color: Theme.of(context).primaryColorDark,
+                         color: Colors.blueAccent,
                          textColor: Theme.of(context).primaryColorLight,
                         child: Text(
                           "Save",
@@ -142,7 +153,7 @@ class _NoteDetailsState extends State<NoteDetails>{
                         width:5.0
                       ),
                      Expanded(child: RaisedButton(
-                       color: Theme.of(context).primaryColorDark,
+                       color: Colors.black,
                        textColor: Theme.of(context).primaryColorLight,
                        child: Text(
                             "Delete",
@@ -184,6 +195,29 @@ class _NoteDetailsState extends State<NoteDetails>{
     }
 
   }
+BoxDecoration myBoxDecoration() {
+  return BoxDecoration(
+    border: Border(
+      left: BorderSide( //                   <--- left side
+        color: Colors.blue[100],
+        width: 15.0,
+      ),
+      top: BorderSide( //                    <--- top side
+        color: Colors.blue[300],
+        width: 10.0,
+      ),
+      right: BorderSide( //                    <--- top side
+        color: Colors.blue[500],
+        width: 5.0,
+      ),
+      bottom: BorderSide( //                    <--- top side
+        color: Colors.blue[800],
+        width: 3.0,
+      ),
+     
+    ),
+  );
+}
   String getPriorityAsString(int value){
     String priority;
     switch (value){
