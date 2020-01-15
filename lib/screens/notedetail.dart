@@ -76,7 +76,7 @@ class _NoteDetailsState extends State<NoteDetails>{
                   },
                   decoration: InputDecoration(
                     labelText: "Title",
-                    // labelStyle: textStyle,
+                    labelStyle: textStyle,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
 
