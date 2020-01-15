@@ -198,20 +198,20 @@ class _NoteDetailsState extends State<NoteDetails>{
     note.date=DateFormat.yMMMd().format(DateTime.now());
     int result;
     if(note.id !=null){
-      _showAlterDialog('Status','Ahsan');
+      // _showAlterDialog('Status','Ahsan');
       result = await helper.updateNote(note);
       print(note);
-      print ("iske uper note ka result");
+      // print ("iske uper note ka result");
       print(result);
-      _showAlterDialog('Status','Ahsan1');
+      // _showAlterDialog('Status','Ahsan1');
     }
     else
       {
-      _showAlterDialog('Status','Ahsan insert');
+      // _showAlterDialog('Status','Ahsan insert');
       result = await helper.insertNote(note);
       print(note);
       print ("iske uper note ka result");
-      _showAlterDialog('Status','Ahsan2');
+      // _showAlterDialog('Status','Ahsan2');
     }
     if (result!=0){
       _showAlterDialog('Status','Note Saved Successfully');
